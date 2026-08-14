@@ -1,4 +1,4 @@
-# Rezvan & Reivanya Birthday Invitation
+# Digital birthday invitation
 
 Website undangan ulang tahun berbasis Next.js App Router, React, TypeScript,
 Tailwind CSS, Drizzle ORM, dan Supabase PostgreSQL.
