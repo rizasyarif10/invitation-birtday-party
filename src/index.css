@@ -264,6 +264,39 @@ a {
   }
 }
 
+@keyframes rsvp-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rsvp-list-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.2;
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes rsvp-list-fade-in {
+  from {
+    opacity: 0.2;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-hero-breathe {
   animation: hero-breathe 18s ease-in-out 1.5s infinite;
 }
@@ -312,6 +345,22 @@ a {
 .dropdown-menu-open {
   transform-origin: top center;
   animation: dropdown-menu-open 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.rsvp-card-enter {
+  animation: rsvp-card-enter 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.rsvp-responses-transition {
+  view-transition-name: rsvp-responses;
+}
+::view-transition-group(rsvp-responses) {
+  animation-duration: 480ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+::view-transition-old(rsvp-responses) {
+  animation: rsvp-list-fade-out 280ms ease-out both;
+}
+::view-transition-new(rsvp-responses) {
+  animation: rsvp-list-fade-in 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

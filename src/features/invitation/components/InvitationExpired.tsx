@@ -24,11 +24,11 @@ export function InvitationExpired() {
           Rezvan &amp; Reivanya
         </p>
         <h1 className="font-playful mt-3 text-3xl font-black text-[#32190d] sm:text-4xl">
-          Acara Telah Selesai
+          The Celebration Has Ended
         </h1>
         <p className="mt-5 text-sm leading-7 font-medium text-[#75513a]">
-          Terima kasih atas perhatian, doa, dan kebersamaan yang diberikan untuk
-          Rezvan dan Reivanya.
+          Thank you for your kindness, prayers, and for being part of Rezvan and
+          Reivanya’s special celebration.
         </p>
       </section>
     </main>

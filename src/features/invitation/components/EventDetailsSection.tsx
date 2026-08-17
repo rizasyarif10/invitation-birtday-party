@@ -8,7 +8,7 @@ export function EventDetailsSection() {
       <div className="pointer-events-none absolute right-[5%] bottom-10 animate-float-reverse text-4xl opacity-35" aria-hidden="true">🎃</div>
       <div className="mx-auto max-w-6xl">
         <header className="mb-10 text-center lg:mb-14">
-          <p className="text-xs font-black tracking-[0.3em] text-[#a33d0b] uppercase">Detail Acara</p>
+          <p className="text-xs font-black tracking-[0.3em] text-[#a33d0b] uppercase">Event Details</p>
           <h2 className="font-playful mt-3 text-4xl font-black text-[#31190e] sm:text-5xl lg:text-6xl">Save the Date</h2>
           <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-[#dc6518]" />
         </header>

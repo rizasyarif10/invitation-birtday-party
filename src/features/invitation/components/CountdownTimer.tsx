@@ -23,7 +23,7 @@ export function CountdownTimer() {
         ))}
       </div>
       <p className="mt-6 text-center text-xs leading-relaxed text-[#d9b58d]">
-        {EVENT.dateLabel} · Mulai pukul 16.00 WIB
+        {EVENT.dateLabel} · {EVENT.timeLabel}
       </p>
     </>
   );

@@ -39,27 +39,27 @@ function parseRsvpPayload(value: unknown): RsvpPayload | null {
 export async function POST(request: Request) {
   if (isInvitationAccessClosed()) {
     return jsonError(
-      "Masa konfirmasi kehadiran telah berakhir karena acara sudah selesai.",
+      "RSVPs are now closed because the celebration has ended.",
       410,
     );
   }
 
   const contentLength = Number(request.headers.get("content-length") ?? 0);
   if (contentLength > 10_000) {
-    return jsonError("Data konfirmasi terlalu besar.", 413);
+    return jsonError("The response data is too large.", 413);
   }
 
   let rawPayload: unknown;
   try {
     rawPayload = await request.json();
   } catch {
-    return jsonError("Format data konfirmasi tidak valid.", 400);
+    return jsonError("The response data format is invalid.", 400);
   }
 
   const payload = parseRsvpPayload(rawPayload);
   if (!payload) {
     return jsonError(
-      "Pilih kehadiran yang valid dan batasi ucapan hingga 500 karakter.",
+      "Select a valid attendance response and keep your message within 500 characters.",
       400,
     );
   }
@@ -68,12 +68,12 @@ export async function POST(request: Request) {
     const result = await saveRsvp(payload);
 
     if (result === "not-found") {
-      return jsonError("Undangan tidak ditemukan.", 404);
+      return jsonError("Invitation not found.", 404);
     }
 
     if (result === "unchanged") {
       return jsonError(
-        "Konfirmasi dengan pilihan yang sama sudah pernah dikirim. Silakan ubah pilihan kehadiran jika keputusan Anda berubah.",
+        "The same attendance response has already been submitted. Please update your response if your plans change.",
         409,
       );
     }
@@ -82,13 +82,13 @@ export async function POST(request: Request) {
       success: true,
       message:
         result === "created"
-          ? "Terima kasih! Konfirmasi kehadiran Anda sudah tersimpan."
-          : "Terima kasih! Perubahan konfirmasi kehadiran Anda sudah tersimpan.",
+          ? "Thank you! Your attendance response has been saved."
+          : "Thank you! Your updated attendance response has been saved.",
     });
   } catch (error) {
-    console.error("Gagal menyimpan konfirmasi RSVP.", error);
+    console.error("Failed to save the RSVP response.", error);
     return jsonError(
-      "Konfirmasi belum dapat disimpan. Silakan coba beberapa saat lagi.",
+      "Your response could not be saved. Please try again in a moment.",
       500,
     );
   }

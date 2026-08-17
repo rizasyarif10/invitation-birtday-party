@@ -7,7 +7,7 @@ import * as schema from "@/db/schema";
 const connectionString = process.env.DATABASE_URL;
 
 if (!connectionString) {
-  throw new Error("DATABASE_URL belum dikonfigurasi.");
+  throw new Error("DATABASE_URL is not configured.");
 }
 
 type SqlClient = ReturnType<typeof postgres>;

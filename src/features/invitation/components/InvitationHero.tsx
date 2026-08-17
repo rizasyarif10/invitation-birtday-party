@@ -7,11 +7,11 @@ export function InvitationHero({
   return (
     <section
       className="relative isolate min-h-[70svh] overflow-hidden bg-[#2a160c] lg:min-h-screen"
-      aria-label="Happy Birthday Rezvan dan Reivanya"
+      aria-label="Happy Birthday Rezvan and Reivanya"
     >
       <Image
         src={birthdayArtwork}
-        alt="Happy Birthday Rezvan dan Reivanya"
+        alt="Happy Birthday Rezvan and Reivanya"
         fill
         priority
         sizes="100vw"
@@ -26,7 +26,7 @@ export function InvitationHero({
           type="button"
           onClick={onContinue}
           className="mt-5 flex size-11 animate-bounce items-center justify-center rounded-full border border-white/50 bg-white/15 text-xl backdrop-blur-sm"
-          aria-label="Lihat sapaan undangan"
+          aria-label="View the invitation message"
         >
           ↓
         </button>

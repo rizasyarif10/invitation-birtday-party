@@ -19,11 +19,11 @@ export function InvitationCover({
         isOpened ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
       style={{ transitionDelay: isOpened ? "450ms" : "0ms" }}
-      aria-label="Pembuka undangan"
+      aria-label="Invitation cover"
     >
       <Image
         src={birthdayArtwork}
-        alt="Ilustrasi Rezvan dan Reivanya dengan dua kelinci dan dekorasi Halloween yang ceria"
+        alt="A cheerful Halloween illustration for Rezvan and Reivanya featuring two bunnies"
         fill
         priority
         sizes="100vw"
@@ -55,14 +55,14 @@ export function InvitationCover({
             ✉
           </div>
           <p className="font-playful mb-3 text-base font-black text-[#5c321d] sm:text-lg">
-            Assalamu’alaikum Wr. Wb.
+            Hi There! <span className="text-[#cf560f]">👋</span>
           </p>
           <p className="mb-2 text-xs font-black tracking-[0.3em] text-[#a33d0b] uppercase sm:text-sm">
             You’re Invited!
           </p>
           <div className="mx-auto mb-5 max-w-sm rounded-2xl border border-[#d9ae79]/60 bg-white/50 px-4 py-3">
             <p className="text-[9px] font-black tracking-[0.2em] text-[#91603d] uppercase">
-              Kepada Yth.
+              To:
             </p>
             <p className="font-playful mt-1 text-lg font-black text-[#3d2113] sm:text-xl">
               {guest.displayName}
@@ -95,7 +95,13 @@ export function InvitationCover({
             >
               ✦
             </span>{" "}
-            Buka Undangan
+            Open Invitation{" "}
+            <span
+              className="text-lg transition-transform group-hover:-rotate-12"
+              aria-hidden="true"
+            >
+              ✦
+            </span>
           </button>
         </div>
       </div>

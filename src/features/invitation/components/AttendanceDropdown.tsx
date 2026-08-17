@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import type { AttendanceValue } from "@/features/invitation/types";
 
 const OPTIONS = [
-  { value: "hadir", label: "Ya, saya akan hadir", icon: "✓" },
-  { value: "tidak-hadir", label: "Maaf, belum dapat hadir", icon: "×" },
+  { value: "hadir", label: "Yes, I’ll be there", icon: "✓" },
+  { value: "tidak-hadir", label: "Sorry, I can’t attend", icon: "×" },
 ] as const;
 
 type AttendanceDropdownProps = {
@@ -71,7 +71,7 @@ export function AttendanceDropdown({
         }`}
       >
         <span className={selectedOption ? "text-[#4b2d1b]" : "text-[#9d806a]"}>
-          {selectedOption?.label ?? "Pilih konfirmasi"}
+          {selectedOption?.label ?? "Select your response"}
         </span>
         <span
           className={`grid size-7 shrink-0 place-items-center rounded-lg bg-[#f2dbb7] text-[#8f461b] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}

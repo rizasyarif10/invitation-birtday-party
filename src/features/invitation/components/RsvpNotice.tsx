@@ -22,8 +22,8 @@ const FEEDBACK_STYLES = {
 } as const;
 
 const ATTENDANCE_LABELS: Record<AttendanceValue, string> = {
-  hadir: "Akan hadir",
-  "tidak-hadir": "Belum dapat hadir",
+  hadir: "Attending",
+  "tidak-hadir": "Unable to attend",
 };
 
 function FeedbackNotice({ feedback }: Readonly<{ feedback: RsvpFeedback }>) {
@@ -60,12 +60,12 @@ function CurrentAttendanceNotice({
       </span>
       <p className="text-sm leading-6 font-semibold">
         <span className="block text-[10px] font-black tracking-[0.14em] text-[#91603d] uppercase">
-          Konfirmasi saat ini
+          Current response
         </span>
         <strong className="text-[#8e3e12]">
           {ATTENDANCE_LABELS[attendance]}
         </strong>
-        {". Ubah pilihan di bawah jika keputusan Anda berubah."}
+        {". Update your response below if your plans change."}
       </p>
     </div>
   );

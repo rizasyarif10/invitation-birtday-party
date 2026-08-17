@@ -24,11 +24,11 @@ export function InvitationNotFound() {
           Rezvan &amp; Reivanya
         </p>
         <h1 className="font-playful mt-3 text-3xl font-black text-[#32190d] sm:text-4xl">
-          Undangan Tidak Ditemukan
+          Invitation Not Found
         </h1>
         <p className="mt-5 text-sm leading-7 font-medium text-[#75513a]">
-          Mohon periksa kembali tautan undangan yang Anda terima atau hubungi
-          pihak keluarga.
+          Please check the invitation link you received or contact the family
+          for assistance.
         </p>
       </section>
     </main>

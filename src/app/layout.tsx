@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s · Rezvan & Reivanya",
   },
   description:
-    "Undangan ulang tahun Rezvan dan Reivanya dengan tema Halloween yang hangat dan ceria.",
+    "A warm and cheerful Halloween-themed birthday invitation for Rezvan and Reivanya.",
 };
 
 export const viewport: Viewport = {
@@ -21,7 +21,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="id">
+    <html lang="en">
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

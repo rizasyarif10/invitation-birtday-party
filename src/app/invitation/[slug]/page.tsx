@@ -3,7 +3,10 @@ import { notFound } from "next/navigation";
 import { InvitationPage } from "@/features/invitation/InvitationPage";
 import { InvitationExpired } from "@/features/invitation/components/InvitationExpired";
 import { isInvitationAccessClosed } from "@/features/invitation/config/event";
-import { getInvitationBySlug } from "@/features/invitation/data/invitations";
+import {
+  getInvitationBySlug,
+  getRsvpEntries,
+} from "@/features/invitation/data/invitations";
 
 export const dynamic = "force-dynamic";
 
@@ -16,8 +19,8 @@ export async function generateMetadata({
 }: InvitationRouteProps): Promise<Metadata> {
   if (isInvitationAccessClosed()) {
     return {
-      title: "Acara Telah Selesai",
-      description: "Acara ulang tahun Rezvan dan Reivanya telah selesai.",
+      title: "The Celebration Has Ended",
+      description: "Rezvan and Reivanya's birthday celebration has ended.",
     };
   }
 
@@ -26,10 +29,10 @@ export async function generateMetadata({
 
   return {
     title: invitation
-      ? `Undangan untuk ${invitation.guest.displayName}`
-      : "Undangan Tidak Ditemukan",
+      ? `Invitation for ${invitation.guest.displayName}`
+      : "Invitation Not Found",
     description: invitation
-      ? `Undangan ulang tahun Rezvan dan Reivanya untuk ${invitation.guest.displayName}.`
+      ? `Rezvan and Reivanya's birthday invitation for ${invitation.guest.displayName}.`
       : undefined,
   };
 }
@@ -44,7 +47,13 @@ export default async function InvitationRoute({
 
   if (!invitation) notFound();
 
+  const rsvpEntries = await getRsvpEntries();
+
   return (
-    <InvitationPage guest={invitation.guest} initialRsvp={invitation.rsvp} />
+    <InvitationPage
+      guest={invitation.guest}
+      initialRsvp={invitation.rsvp}
+      initialRsvpEntries={rsvpEntries}
+    />
   );
 }

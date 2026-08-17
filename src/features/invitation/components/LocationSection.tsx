@@ -10,7 +10,7 @@ export function LocationSection() {
       <div className="relative mx-auto max-w-6xl">
         <header className="mb-10 text-center lg:mb-14">
           <p className="text-xs font-black tracking-[0.3em] text-[#a33d0b] uppercase">
-            Lokasi Acara
+            Event Location
           </p>
           <h2 className="font-playful mt-3 text-4xl font-black text-[#31190e] sm:text-5xl">
             Party Location
@@ -21,7 +21,7 @@ export function LocationSection() {
           <div className="h-72 overflow-hidden border-b border-[#d6b485] bg-[#e6ddcf] lg:h-105 lg:border-r lg:border-b-0">
             <iframe
               src={EVENT.googleMapsEmbedUrl}
-              title={`Peta lokasi ${EVENT.venue}`}
+              title={`Map showing ${EVENT.venue}`}
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
@@ -33,7 +33,7 @@ export function LocationSection() {
               🏚️
             </span>
             <p className="text-[10px] font-black tracking-[0.18em] text-[#a24c19] uppercase">
-              Tempat Acara
+              Venue
             </p>
             <h3 className="font-playful mt-2 text-3xl font-black">
               {EVENT.venue}
@@ -47,7 +47,7 @@ export function LocationSection() {
               rel="noreferrer"
               className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#a94410] px-6 text-sm font-black text-white shadow-[0_7px_0_#693017] transition hover:-translate-y-1 hover:bg-[#bd5014] hover:shadow-[0_10px_0_#693017] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#d86117] active:translate-y-1 active:shadow-[0_3px_0_#693017]"
             >
-              <span aria-hidden="true">↗</span> Buka Google Maps
+              <span aria-hidden="true">↗</span> Open Google Maps
             </a>
           </div>
         </div>

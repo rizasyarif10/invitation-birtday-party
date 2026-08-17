@@ -11,6 +11,11 @@ export type RsvpSummary = {
   message: string;
 };
 
+export type RsvpEntry = RsvpSummary & {
+  slug: string;
+  displayName: string;
+};
+
 export type RsvpFeedback = {
   type: "success" | "error";
   message: string;

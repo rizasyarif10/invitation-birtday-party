@@ -6,8 +6,8 @@ export function isInvitationAccessClosed(now = Date.now()) {
 }
 
 export const EVENT = {
-  dateLabel: "Sabtu, 05 September 2026",
-  timeLabel: "16.00–selesai WIB",
+  dateLabel: "Saturday, September 5, 2026",
+  timeLabel: "4:00 PM onwards (WIB)",
   venue: "HokBen Ciater",
   address:
     "Jl. Ciater Raya, RT.1/RW.4, Serua, Kec. Ciputat, Kota Tangerang Selatan, Banten 15414",
@@ -17,8 +17,8 @@ export const EVENT = {
 } as const;
 
 export const EVENT_DETAILS = [
-  { icon: "📅", label: "Hari / Tanggal", value: EVENT.dateLabel },
-  { icon: "🕒", label: "Waktu", value: EVENT.timeLabel },
-  { icon: "🏡", label: "Tempat", value: EVENT.venue },
-  { icon: "📍", label: "Alamat", value: EVENT.address },
+  { icon: "📅", label: "Date", value: EVENT.dateLabel },
+  { icon: "🕒", label: "Time", value: EVENT.timeLabel },
+  { icon: "🏡", label: "Venue", value: EVENT.venue },
+  { icon: "📍", label: "Address", value: EVENT.address },
 ] as const;

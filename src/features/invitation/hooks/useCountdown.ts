@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { EVENT_DATE } from "@/features/invitation/config/event";
 
 const EMPTY_COUNTDOWN = [
-  { value: "--", label: "Hari" },
-  { value: "--", label: "Jam" },
-  { value: "--", label: "Menit" },
-  { value: "--", label: "Detik" },
+  { value: "--", label: "Days" },
+  { value: "--", label: "Hours" },
+  { value: "--", label: "Minutes" },
+  { value: "--", label: "Seconds" },
 ];
 
 function calculateCountdown() {
@@ -16,10 +16,10 @@ function calculateCountdown() {
   const seconds = Math.floor((distance / 1_000) % 60);
 
   return [
-    { value: String(days).padStart(2, "0"), label: "Hari" },
-    { value: String(hours).padStart(2, "0"), label: "Jam" },
-    { value: String(minutes).padStart(2, "0"), label: "Menit" },
-    { value: String(seconds).padStart(2, "0"), label: "Detik" },
+    { value: String(days).padStart(2, "0"), label: "Days" },
+    { value: String(hours).padStart(2, "0"), label: "Hours" },
+    { value: String(minutes).padStart(2, "0"), label: "Minutes" },
+    { value: String(seconds).padStart(2, "0"), label: "Seconds" },
   ];
 }
 

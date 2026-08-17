@@ -11,16 +11,22 @@ import { MusicButton } from "@/features/invitation/components/MusicButton";
 import { RsvpSection } from "@/features/invitation/components/RsvpSection";
 import { useBirthdayMusic } from "@/features/invitation/hooks/useBirthdayMusic";
 import { useRevealOnScroll } from "@/features/invitation/hooks/useRevealOnScroll";
-import type { Guest, RsvpSummary } from "@/features/invitation/types";
+import type {
+  Guest,
+  RsvpEntry,
+  RsvpSummary,
+} from "@/features/invitation/types";
 
 type InvitationPageProps = {
   guest: Guest;
   initialRsvp: RsvpSummary | null;
+  initialRsvpEntries: RsvpEntry[];
 };
 
 export const InvitationPage = ({
   guest,
   initialRsvp,
+  initialRsvpEntries,
 }: InvitationPageProps) => {
   const [isOpened, setIsOpened] = useState(false);
   const [showCover, setShowCover] = useState(true);
@@ -36,11 +42,12 @@ export const InvitationPage = ({
 
   const openInvitation = () => {
     if (isOpened) return;
+
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     setIsOpened(true);
     void play();
     window.setTimeout(() => {
       setShowCover(false);
-      window.scrollTo({ top: 0, behavior: "auto" });
     }, 1_350);
   };
 
@@ -76,7 +83,11 @@ export const InvitationPage = ({
         <InvitationMessage guest={guest} />
         <EventDetailsSection />
         <LocationSection />
-        <RsvpSection guest={guest} initialRsvp={initialRsvp} />
+        <RsvpSection
+          guest={guest}
+          initialRsvp={initialRsvp}
+          initialRsvpEntries={initialRsvpEntries}
+        />
         <InvitationFooter />
       </main>
     </div>

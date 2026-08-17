@@ -8,7 +8,7 @@ const migrationUrl =
 
 if (!migrationUrl) {
   throw new Error(
-    "DATABASE_MIGRATION_URL atau DATABASE_URL belum dikonfigurasi.",
+    "DATABASE_MIGRATION_URL or DATABASE_URL is not configured.",
   );
 }
 

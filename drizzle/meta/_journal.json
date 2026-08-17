@@ -15,6 +15,41 @@
       "when": 1786727367045,
       "tag": "0001_seed_invitations",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1786897800219,
+      "tag": "0002_remove-example-invitations",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1786898417623,
+      "tag": "0003_insert-example-invitation",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1786904708333,
+      "tag": "0004_delete-example-invitation",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1786904833017,
+      "tag": "0005_insert-guest-invitations",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1786905290921,
+      "tag": "0006_insert-additional-guest-invitations",
+      "breakpoints": true
     }
   ]
 }

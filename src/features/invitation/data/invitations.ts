@@ -1,12 +1,13 @@
 import "server-only";
 
 import { cache } from "react";
-import { and, eq, ne } from "drizzle-orm";
+import { and, desc, eq, ne } from "drizzle-orm";
 import { db } from "@/db";
 import { invitations, rsvps } from "@/db/schema";
 import type {
   AttendanceValue,
   InvitationData,
+  RsvpEntry,
 } from "@/features/invitation/types";
 
 const normalizeSlug = (slug: string) => slug.trim().toLowerCase();
@@ -44,6 +45,26 @@ export const getInvitationBySlug = cache(
     };
   },
 );
+
+export const getRsvpEntries = cache(async (): Promise<RsvpEntry[]> => {
+  const rows = await db
+    .select({
+      slug: invitations.slug,
+      displayName: invitations.displayName,
+      attendance: rsvps.attendance,
+      message: rsvps.message,
+    })
+    .from(rsvps)
+    .innerJoin(invitations, eq(rsvps.invitationId, invitations.id))
+    .orderBy(desc(rsvps.updatedAt));
+
+  return rows.map((row) => ({
+    slug: row.slug,
+    displayName: row.displayName,
+    attendance: row.attendance ? "hadir" : "tidak-hadir",
+    message: row.message,
+  }));
+});
 
 type SaveRsvpInput = {
   slug: string;
