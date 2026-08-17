@@ -4,8 +4,7 @@ export function InvitationMessage({ guest }: Readonly<{ guest: Guest }>) {
   return (
     <section
       id="invitation-message"
-      data-reveal
-      className="reveal-section relative overflow-hidden bg-[#f3dcb9] px-5 py-16 text-center sm:px-8 lg:py-24"
+      className="relative overflow-hidden bg-[#f3dcb9] px-5 py-16 text-center sm:px-8 lg:py-24"
     >
       <div className="absolute inset-0 opacity-30 paper-pattern" />
       <span
@@ -20,7 +19,10 @@ export function InvitationMessage({ guest }: Readonly<{ guest: Guest }>) {
       >
         🎃
       </span>
-      <div className="relative mx-auto max-w-3xl rounded-4xl border border-[#d6b485] bg-[#fff9eb]/90 px-6 py-9 shadow-[0_18px_55px_rgba(81,42,16,0.12)] backdrop-blur-sm sm:px-12 sm:py-12">
+      <div
+        data-reveal
+        className="reveal-block relative mx-auto max-w-3xl rounded-4xl border border-[#d6b485] bg-[#fff9eb]/90 px-6 py-9 shadow-[0_18px_55px_rgba(81,42,16,0.12)] backdrop-blur-sm sm:px-12 sm:py-12"
+      >
         <p className="font-playful text-xl font-black text-[#5b3019] sm:text-2xl">
           Hi There! <span className="text-[#cf560f]">👋</span>
         </p>

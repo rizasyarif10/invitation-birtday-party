@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600&display=swap");
 
 :root {
   font-family:
@@ -38,7 +39,8 @@ a {
 
 .font-playful {
   font-family:
-    "Arial Rounded MT Bold", "Trebuchet MS", ui-rounded, system-ui, sans-serif;
+    "Baloo 2", "Arial Rounded MT Bold", "Trebuchet MS", ui-rounded, system-ui,
+    sans-serif;
   letter-spacing: -0.025em;
 }
 
@@ -88,17 +90,31 @@ a {
   background-size: 76px 76px;
 }
 
-.reveal-section {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.9s ease-out,
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.reveal-section.reveal-visible {
+/* The reveal runs as an animation, not a transition: a `transition` shorthand
+   here loads after Tailwind and would override the hover transitions declared
+   on the same elements. */
+.reveal-block,
+[data-reveal-item] {
+  opacity: 0;
+}
+
+.reveal-block.reveal-visible,
+[data-reveal-item].reveal-visible {
   opacity: 1;
-  transform: translateY(0);
+  /* `backwards`, not `both`: the animation stops applying once it ends, so it
+     never pins `transform` and hover states stay free to move. */
+  animation: reveal-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
 @keyframes cover-card-enter {
@@ -183,13 +199,32 @@ a {
   }
 }
 
-@keyframes countdown-pop {
-  0%,
-  100% {
-    transform: translateY(0);
+/* Fires once per value change, so the countdown ticks in step with the clock
+   instead of floating on its own timer. */
+@keyframes countdown-tick {
+  0% {
+    transform: scale(1);
   }
-  50% {
-    transform: translateY(-5px);
+  35% {
+    transform: scale(1.13);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes copy-check {
+  0% {
+    transform: scale(0.4) rotate(-25deg);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.25) rotate(6deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
   }
 }
 
@@ -318,8 +353,11 @@ a {
 .animate-float-reverse {
   animation: float-reverse 5.5s ease-in-out infinite;
 }
-.countdown-card {
-  animation: countdown-pop 3.4s ease-in-out infinite;
+.countdown-value {
+  animation: countdown-tick 380ms ease-out;
+}
+.animate-copy-check {
+  animation: copy-check 420ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .animate-map-pin {
   animation: map-pin 2.8s ease-in-out infinite;
@@ -377,8 +415,10 @@ a {
     transition-duration: 0.01ms !important;
   }
 
-  .reveal-section {
+  .reveal-block,
+  [data-reveal-item] {
     opacity: 1;
     transform: none;
+    animation: none !important;
   }
 }

@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import { flushSync } from "react-dom";
-import type {
-  AttendanceValue,
-  RsvpEntry,
-} from "@/features/invitation/types";
+import type { AttendanceValue, RsvpEntry } from "@/features/invitation/types";
 
 type RsvpEntriesProps = {
   entries: RsvpEntry[];
@@ -60,7 +57,7 @@ export function RsvpEntries({ entries }: Readonly<RsvpEntriesProps>) {
 
   return (
     <div className="rsvp-responses-transition mt-14 lg:mt-16">
-      <header className="text-center">
+      <header data-reveal className="reveal-block text-center">
         <p className="text-[10px] font-black tracking-[0.24em] text-[#a33d0b] uppercase">
           Guest Responses
         </p>
@@ -127,7 +124,8 @@ export function RsvpEntries({ entries }: Readonly<RsvpEntriesProps>) {
               }
               className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#c96424] bg-[#fff8e9] px-6 text-xs font-black tracking-wide text-[#8b3b12] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f9e5c5] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#d86117] active:translate-y-0"
             >
-              Show {nextBatchCount} More {nextBatchCount === 1 ? "Response" : "Responses"}
+              Show {nextBatchCount} More{" "}
+              {nextBatchCount === 1 ? "Response" : "Responses"}
               <span
                 className="transition-transform duration-300 group-hover:translate-y-0.5"
                 aria-hidden="true"

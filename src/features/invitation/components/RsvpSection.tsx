@@ -1,7 +1,9 @@
 import { useState, type SubmitEvent } from "react";
 import { AttendanceDropdown } from "@/features/invitation/components/AttendanceDropdown";
+import { ConfettiBurst } from "@/features/invitation/components/ConfettiBurst";
 import { RsvpEntries } from "@/features/invitation/components/RsvpEntries";
 import { RsvpNotice } from "@/features/invitation/components/RsvpNotice";
+import { vibrate } from "@/features/invitation/utils/haptics";
 import type {
   AttendanceValue,
   Guest,
@@ -31,6 +33,7 @@ export function RsvpSection({
   const [confirmedAttendance, setConfirmedAttendance] =
     useState<AttendanceValue | null>(initialRsvp?.attendance ?? null);
   const [rsvpEntries, setRsvpEntries] = useState(initialRsvpEntries);
+  const [burstId, setBurstId] = useState(0);
 
   const submitRsvp = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -69,6 +72,9 @@ export function RsvpSection({
       }
 
       setConfirmedAttendance(attendance);
+      vibrate([12, 40, 12]);
+      // Only celebrate an actual "yes" — confetti over a decline reads badly.
+      if (attendance === "hadir") setBurstId((current) => current + 1);
       setRsvpEntries((currentEntries) => [
         {
           slug: guest.slug,
@@ -80,8 +86,7 @@ export function RsvpSection({
       ]);
       setFeedback({
         type: "success",
-        message:
-          result.message ?? "Thank you! Your response has been saved.",
+        message: result.message ?? "Thank you! Your response has been saved.",
       });
     } catch {
       setFeedback({
@@ -95,12 +100,9 @@ export function RsvpSection({
   };
 
   return (
-    <section
-      data-reveal
-      className="reveal-section relative bg-[#fff8e9] px-5 py-20 sm:px-8 lg:py-28"
-    >
+    <section className="relative bg-[#fff8e9] px-5 py-20 sm:px-8 lg:py-28">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-10 text-center lg:mb-14">
+        <header data-reveal className="reveal-block mb-10 text-center lg:mb-14">
           <p className="text-xs font-black tracking-[0.3em] text-[#a33d0b] uppercase">
             RSVP
           </p>
@@ -114,7 +116,8 @@ export function RsvpSection({
 
         <form
           onSubmit={submitRsvp}
-          className="mx-auto max-w-3xl rounded-4xl border border-[#e4c495] bg-white p-6 shadow-[0_20px_60px_rgba(91,46,17,0.1)] sm:p-9"
+          data-reveal
+          className="reveal-block mx-auto max-w-3xl rounded-4xl border border-[#e4c495] bg-white p-6 shadow-[0_20px_60px_rgba(91,46,17,0.1)] sm:p-9"
         >
           <RsvpNotice
             feedback={feedback}
@@ -198,6 +201,7 @@ export function RsvpSection({
 
         <RsvpEntries entries={rsvpEntries} />
       </div>
+      <ConfettiBurst burstId={burstId} />
     </section>
   );
 }

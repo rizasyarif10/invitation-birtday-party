@@ -64,7 +64,7 @@ export function AttendanceDropdown({
         aria-labelledby="attendance-label attendance-select"
         disabled={disabled}
         onClick={() => setIsOpen((current) => !current)}
-        className={`flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border bg-[#fffaf0] px-4 text-left text-sm font-semibold outline-none transition focus:ring-4 disabled:cursor-wait disabled:opacity-65 ${
+        className={`flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border bg-[#fffaf0] px-4 text-left text-sm font-semibold outline-none transition duration-200 ease-out focus:ring-4 active:scale-[0.99] disabled:cursor-wait disabled:opacity-65 ${
           hasError
             ? "border-[#c4442b] text-[#7d2b1d] focus:border-[#c4442b] focus:ring-[#c4442b]/15"
             : "border-[#dfc29c] text-[#5f3e29] focus:border-[#cc5a15] focus:ring-[#e57b30]/15"

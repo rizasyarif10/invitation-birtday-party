@@ -1,14 +1,12 @@
+import { CopyAddressButton } from "@/features/invitation/components/CopyAddressButton";
 import { EVENT } from "@/features/invitation/config/event";
 
 export function LocationSection() {
   return (
-    <section
-      data-reveal
-      className="reveal-section relative overflow-hidden bg-[#f3dcb9] px-5 py-20 sm:px-8 lg:py-28"
-    >
+    <section className="relative overflow-hidden bg-[#f3dcb9] px-5 py-20 sm:px-8 lg:py-28">
       <div className="absolute inset-0 opacity-30 paper-pattern" />
       <div className="relative mx-auto max-w-6xl">
-        <header className="mb-10 text-center lg:mb-14">
+        <header data-reveal className="reveal-block mb-10 text-center lg:mb-14">
           <p className="text-xs font-black tracking-[0.3em] text-[#a33d0b] uppercase">
             Event Location
           </p>
@@ -17,7 +15,10 @@ export function LocationSection() {
           </h2>
         </header>
 
-        <div className="isolate grid overflow-hidden rounded-2xl border border-[#d6b485] bg-[#fff9eb] shadow-[0_24px_70px_rgba(81,42,16,0.16)] sm:rounded-3xl lg:grid-cols-[1.2fr_0.8fr]">
+        <div
+          data-reveal
+          className="reveal-block isolate grid overflow-hidden rounded-2xl border border-[#d6b485] bg-[#fff9eb] shadow-[0_24px_70px_rgba(81,42,16,0.16)] sm:rounded-3xl lg:grid-cols-[1.2fr_0.8fr]"
+        >
           <div className="h-72 overflow-hidden border-b border-[#d6b485] bg-[#e6ddcf] lg:h-105 lg:border-r lg:border-b-0">
             <iframe
               src={EVENT.googleMapsEmbedUrl}
@@ -49,6 +50,7 @@ export function LocationSection() {
             >
               <span aria-hidden="true">↗</span> Open Google Maps
             </a>
+            <CopyAddressButton address={`${EVENT.venue} — ${EVENT.address}`} />
           </div>
         </div>
       </div>

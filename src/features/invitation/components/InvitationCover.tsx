@@ -1,6 +1,7 @@
 import Image from "next/image";
 import birthdayArtwork from "@/assets/rezvan-reivanya-halloween.jpg";
 import type { Guest } from "@/features/invitation/types";
+import emailIcon from "@/assets/icon-email.svg";
 
 type InvitationCoverProps = {
   guest: Guest;
@@ -52,7 +53,13 @@ export function InvitationCover({
             className="mx-auto mb-4 flex size-12 items-center justify-center rounded-2xl border border-[#d99659]/45 bg-[#f8d8a7] text-2xl shadow-sm"
             aria-hidden="true"
           >
-            ✉
+            <Image
+              src={emailIcon}
+              alt="Email"
+              width={30}
+              height={30}
+              priority
+            />
           </div>
           <p className="font-playful mb-3 text-base font-black text-[#5c321d] sm:text-lg">
             Hi There! <span className="text-[#cf560f]">👋</span>
@@ -69,7 +76,7 @@ export function InvitationCover({
             </p>
           </div>
           <h1 className="font-playful text-3xl leading-tight font-black text-[#2b160c] sm:text-5xl">
-            Rezvan &amp; Reivanya&apos;s
+            Rezvan &amp; Reivanya&apos;s{" "}
             <span className="block text-[#cf560f]">Birthday Party</span>
           </h1>
           <div

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Pin shape -->
+  <path d="M32 6 C18 6 10 16 10 27 C10 42 32 58 32 58 C32 58 54 42 54 27 C54 16 46 6 32 6 Z"
+        fill="#7A4A2B" stroke="#FF7518" stroke-width="2.5"/>
+  <!-- Ghost inside the pin -->
+  <g transform="translate(32,27)">
+    <path d="M-9 2 C-9 -8 9 -8 9 2 L9 8 L6 5 L3 8 L0 5 L-3 8 L-6 5 L-9 8 Z" fill="#F5E6D3"/>
+    <circle cx="-3.5" cy="-1" r="1.6" fill="#3B2415"/>
+    <circle cx="3.5" cy="-1" r="1.6" fill="#3B2415"/>
+    <ellipse cx="0" cy="3" rx="1.6" ry="2" fill="#3B2415"/>
+  </g>
+  <!-- moon -->
+  <path d="M46 12 A5 5 0 1 0 46 20 A6 6 0 1 1 46 12 Z" fill="#FF8C00"/>
+</svg>
