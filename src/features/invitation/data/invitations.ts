@@ -72,11 +72,7 @@ type SaveRsvpInput = {
   message: string;
 };
 
-export type SaveRsvpResult =
-  | "created"
-  | "updated"
-  | "unchanged"
-  | "not-found";
+export type SaveRsvpResult = "created" | "updated" | "unchanged" | "not-found";
 
 export async function saveRsvp({
   slug,

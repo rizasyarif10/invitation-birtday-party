@@ -1,7 +1,6 @@
 import calendarIcon from "@/assets/icon-calendar.svg";
 import timeIcon from "@/assets/icon-time.svg";
 import dressCodeIcon from "@/assets/icon-pakaian.svg";
-import placeIcon from "@/assets/icon-place.svg";
 
 export const EVENT_DATE = new Date("2026-09-05T16:00:00+07:00");
 export const INVITATION_ACCESS_END = new Date("2026-09-06T00:00:00+07:00");
@@ -27,8 +26,9 @@ export const EVENT_DETAILS: {
   label: string;
   value: string;
 }[] = [
+  // Venue and address deliberately live only in LocationSection, next to the
+  // map and the copy button — repeating them here was redundant.
   { icon: calendarIcon, label: "Date", value: EVENT.dateLabel },
   { icon: timeIcon, label: "Time", value: EVENT.timeLabel },
   { icon: dressCodeIcon, label: "Dress Code", value: EVENT.dress_code },
-  { icon: placeIcon, label: "Address", value: EVENT.address },
 ] as const;

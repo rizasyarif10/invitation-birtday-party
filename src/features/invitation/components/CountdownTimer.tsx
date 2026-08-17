@@ -6,7 +6,9 @@ export function CountdownTimer() {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+      {/* The lg:grid-cols-2 / xl:grid-cols-4 pair existed only because this card
+          used to be a narrow side column; full width keeps all four in a row. */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {countdown.map((item) => (
           <div
             key={item.label}

@@ -31,12 +31,16 @@ export function EventDetailsSection() {
           <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-[#dc6518]" />
         </header>
 
-        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
+        {/* Details and countdown stack instead of sharing a row, so the detail
+            cards get the full container width. */}
+        <div className="grid gap-6 lg:gap-8">
           <div
             data-reveal
             className="reveal-block rounded-4xl border border-[#e5c79d] bg-white/75 p-5 shadow-[0_18px_50px_rgba(92,49,20,0.09)] sm:p-8"
           >
-            <div className="grid gap-3 sm:grid-cols-2">
+            {/* Three across only from lg: at sm/md the container is still too
+                narrow and the date would wrap to three lines. */}
+            <div className="grid gap-3 lg:grid-cols-3">
               {EVENT_DETAILS.map((detail) => (
                 <article
                   key={detail.label}
